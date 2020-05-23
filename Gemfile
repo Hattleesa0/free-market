@@ -79,3 +79,5 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-unicorn'
 end
+
+gem 'recaptcha', '>= 5.4.1',  require: "recaptcha/rails"
