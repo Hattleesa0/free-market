@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     get 'users/select' => 'users/registrations#select'
-    get 'users/confirm_phone' => 'users/registrations#confirm_phone'
-    get 'users/new_address' => 'users/registrations#new_address'
-    get 'users/completed' => 'users/registrations#completed'
+    get 'users/confirm_phone' => 'users/registrations#confirm_phone'    
+    get 'users/new_address' => 'users/registrations#new_address'        
+    post 'users/create_address' => 'users/registrations#create_address'
   end
 
   resources :users, only: [:show]

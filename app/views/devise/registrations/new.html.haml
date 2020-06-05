@@ -20,6 +20,8 @@
       -# SNS認証の時はパスワード入力欄を消す
       - if @sns_auth
         = f.hidden_field :sns_auth, value: true
+      - else
+        .input-field
           .input-field-main
             = f.label :password, "パスワード"
             %span.required-true
