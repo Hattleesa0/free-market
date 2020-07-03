@@ -5,15 +5,14 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    3.times do
-      @item.images.build
-    end
+    @item.images.build
     render layout: 'no_menu' # レイアウトファイルを指定
   end
 
   def create
     @item = Item.new(item_params)
-    if @item.save
+    # binding.pry
+    if @item.save!
       redirect_to root_path, notice: "出品に成功しました"
     else
       redirect_to new_item_path, alert: @item.errors.full_messages
@@ -58,7 +57,7 @@ class ItemsController < ApplicationController
       :delivery_days,
       :prefecture_id,
       :category_id,
-      image_attributes: [:src, :id, :_destroy] 
+      images_attributes: [:src, :id, :_destroy] 
       ).merge(seller_id: current_user.id)
   end
 
