@@ -10,6 +10,12 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :prefecture
 
+  scope :new_items, -> { order("created_at DESC").limit(4) }
+
+  def self.search_by_categories(categories)
+    return Item.where(category: categories).includes(:images)
+  end
+
   enum condition:{
     "新品、未使用": 0,
     "未使用に近い": 1,
