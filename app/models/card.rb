@@ -3,7 +3,7 @@ class Card < ApplicationRecord
   
   def self.get_card(customer_token)  ## カード情報を取得する
     Payjp.api_key = Rails.application.credentials.payjp[:secret_key]
-    
+
     customer = Payjp::Customer.retrieve(customer_token)
     card_data = customer.cards.first
     
