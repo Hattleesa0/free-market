@@ -16,6 +16,10 @@ class Item < ApplicationRecord
     return Item.where(category: categories).includes(:images)
   end
 
+  def self.search_by_categories(category_ids)
+    return Item.where(category_id: category_ids).includes(:images)
+  end
+
   enum condition:{
     "新品、未使用": 0,
     "未使用に近い": 1,
