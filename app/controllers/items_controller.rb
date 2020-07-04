@@ -14,11 +14,11 @@ class ItemsController < ApplicationController
     # @mens_items = Item.search_by_categories(@mens_category.subtree).new_items
     # @kids_items = Item.search_by_categories(@kids_category.subtree).new_items
   
-    # @new_items_arrays = [
+    @new_items_arrays = [
     #   {category: @ladies_category, items: @ladies_items},
     #   {category: @mens_category, items: @mens_items},
     #   {category: @kids_category, items: @kids_items}
-    #  ]
+    ]
   end
 
   def new
