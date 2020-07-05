@@ -1,6 +1,5 @@
 class CardsController < ApplicationController
   before_action :redirect_registered_user, except: [:index]
-  before_action :alreday_registered?, except: [:index, :destroy]
 
   def index
     @card = Card.get_card(current_user.card.customer_token) if current_user.card
